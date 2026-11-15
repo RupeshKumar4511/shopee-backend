@@ -52,7 +52,7 @@ try {
             'path'     => '/',
             'secure'   => false,   
             'httponly' => true,
-            'samesite' => 'Lax',
+            'samesite' => 'None',
         ]);
 
         echo json_encode([

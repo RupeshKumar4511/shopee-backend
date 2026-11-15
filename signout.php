@@ -6,7 +6,7 @@ setcookie("token", "", [
     'path'     => '/',
     'secure'   => false,   
     'httponly' => true,
-    'samesite' => 'Lax',
+    'samesite' => 'None',
 ]);
 
 http_response_code(200);
