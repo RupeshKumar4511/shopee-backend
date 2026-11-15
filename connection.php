@@ -5,6 +5,7 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization",true);
 header("Access-Control-Allow-Methods: POST, OPTIONS",true);
 header("Content-Type: application/json");                   
 
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
