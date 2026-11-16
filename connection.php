@@ -40,6 +40,6 @@ if (!$connected) {
     echo "Something went wrong";
     error_log("DB connection error: " . mysqli_connect_error());
 } else {
-    echo "Successfully connected";
+    // echo "Successfully connected";
 }
 ?>

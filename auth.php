@@ -7,7 +7,12 @@ use Firebase\JWT\Key;
 function verifyJwt(): object {
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->safeLoad();
-    $key = $_ENV['secret'];
+
+    function env($key) {
+    return $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key) ?: null;
+    }
+
+    $key = env('secret');
 
     if (!isset($_COOKIE['token'])) {
         http_response_code(401);
