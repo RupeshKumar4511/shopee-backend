@@ -72,7 +72,7 @@ try {
         
         try{
              // SQL query to insert data
-            $sql = "INSERT INTO `OTP` (`Email`, `OTP_value` ) VALUES ('$email','$OTP_value');";
+            $sql = "INSERT INTO `otp` (`Email`, `OTP_value` ) VALUES ('$email','$OTP_value');";
 
             // Execute query
             if (mysqli_query($connection, $sql)) {
