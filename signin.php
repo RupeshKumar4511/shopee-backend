@@ -30,7 +30,7 @@ try {
     $username = trim($input['username']);
 
     
-    $stmt = mysqli_prepare($connection, "SELECT * FROM `users` WHERE `Username` = ?");
+    $stmt = mysqli_prepare($connection, "SELECT * FROM `users` WHERE `Email` = ?");
     mysqli_stmt_bind_param($stmt, "s", $username);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
