@@ -5,6 +5,8 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization", true);
 header("Access-Control-Allow-Methods: POST, OPTIONS", true);
 header("Content-Type: application/json");
 
+use Firebase\JWT\JWT;
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
@@ -41,7 +43,7 @@ try {
         $issuedAt = time();
         $expire = $issuedAt + 3600;
 
-        $jwt = \Firebase\JWT\JWT::encode([
+        $jwt = JWT::encode([
             "iss" => "http://localhost",
             "iat" => $issuedAt,
             "exp" => $expire,

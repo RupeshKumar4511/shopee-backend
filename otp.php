@@ -49,7 +49,7 @@ try {
        
     }
 } catch (Exception $e) {
-    http_response_code(500); // Server error
+    http_response_code(500); 
     echo json_encode(["success"=>false,"error" => "Message could not be processed: " . $e->getMessage()]);
     exit();
 }
