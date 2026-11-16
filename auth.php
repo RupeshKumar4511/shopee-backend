@@ -3,16 +3,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
 
-function verifyJwt(): object {
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->safeLoad();
-
-    function load_env($key) {
+function load_env($key) {
     return $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key) ?: null;
     }
 
-    $key = load_env('secret');
+function verifyJwt(): object {
+    
+   $key = load_env('secret');
 
     if (!isset($_COOKIE['token'])) {
         http_response_code(401);

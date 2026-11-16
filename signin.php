@@ -51,7 +51,7 @@ try {
         setcookie("token", $jwt, [
             'expires'  => $expire,
             'path'     => '/',
-            'secure'   => false,   
+            'secure'   => true,   
             'httponly' => true,
             'samesite' => 'None',
         ]);

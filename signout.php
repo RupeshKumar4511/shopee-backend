@@ -4,7 +4,7 @@ require_once __DIR__ . '/cors.php';
 setcookie("token", "", [
     'expires'  => time() - 3600,
     'path'     => '/',
-    'secure'   => false,   
+    'secure'   => true,   
     'httponly' => true,
     'samesite' => 'None',
 ]);
