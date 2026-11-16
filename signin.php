@@ -17,10 +17,6 @@ try {
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->safeLoad();
 
-    function env($key) {
-    return $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key) ?: null;
-    }
-
     $key = env('secret');
 
     $input = json_decode(file_get_contents("php://input"), true);
