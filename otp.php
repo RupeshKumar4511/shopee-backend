@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin:https://shopee-one.netlify.app");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Content-Type: application/json; charset=UTF-8");
 

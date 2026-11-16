@@ -1,6 +1,6 @@
 <?php
 
-header("Access-Control-Allow-Origin:https://shopee-one.netlify.app", true);
+header("Access-Control-Allow-Origin:https://shopee-one.netlify.app");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Credentials: true");
@@ -24,9 +24,9 @@ require __DIR__ . "/vendor/autoload.php";
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ .'/'); 
 
 
-$dotenv->load();
-$UserName = $_ENV['username'];
-$Password = $_ENV['password'];
+$dotenv->safeLoad();
+$UserName = env('username');
+$Password = env('password');
 
 
 function sendOTP() {
