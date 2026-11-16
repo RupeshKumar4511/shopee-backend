@@ -13,8 +13,8 @@ try {
         $email = $input['email'];
         
  
-    $sql = "SELECT * FROM `OTP` WHERE `Email` = ? ORDER BY SNo DESC limit 1";
-    $sql2 = "DELETE FROM `OTP` WHERE `Email` = '$email' ";
+    $sql = "SELECT * FROM `otp` WHERE `Email` = ? ORDER BY SNo DESC limit 1";
+    $sql2 = "DELETE FROM `otp` WHERE `Email` = '$email' ";
     
     if ($stmt = mysqli_prepare($connection, $sql)) {
         mysqli_stmt_bind_param($stmt, "s", $email);
