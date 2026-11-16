@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
 }
-include __DIR__ . '/connection.php';
+// include __DIR__ . '/connection.php';
 include __DIR__ . '/otp.php';
 
 
