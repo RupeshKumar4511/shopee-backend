@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:5173",true);
+header("Access-Control-Allow-Origin: https://shopee-one.netlify.app",true);
 header("Access-Control-Allow-Credentials: true",true);
 header("Access-Control-Allow-Headers: Content-Type, Authorization",true);
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS",true);

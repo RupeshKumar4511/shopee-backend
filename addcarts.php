@@ -19,13 +19,13 @@ try {
         $quantity  = $input['quantity']; 
 
 
-        // Prepare statement 
+        
         $stmt = $connection->prepare(
             "INSERT INTO carts (productId, title, price, quantity, user)
              VALUES (?, ?, ?, ?, ?)"
         );
 
-        // bind parameters
+        
         $stmt->bind_param("isiis", $productId, $title, $price, $quantity, $user);
 
         if ($stmt->execute()) {
