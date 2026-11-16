@@ -17,11 +17,28 @@ $password =$_ENV['DB_PASSWORD'];
 $database = $_ENV['DB_NAME'];
 $portno = $_ENV['DB_PORT'];
 
-$connection = mysqli_connect($server,$user,$password,$database,$portno);
+$connection = mysqli_init();
 
-if(!$connection){
+mysqli_ssl_set($connection, NULL, NULL, NULL, NULL, NULL);
+
+
+mysqli_options($connection, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
+
+$connected = mysqli_real_connect(
+    $connection,
+    $server,
+    $user,
+    $password,
+    $database,
+    $portno,
+    NULL,
+    MYSQLI_CLIENT_SSL
+);
+
+if (!$connected) {
     echo "Something went wrong";
-}else{
-    // echo "Successfully connected";
+    
+} else {
+    echo "Successfully connected";
 }
 ?>
