@@ -5,23 +5,24 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization",true);
 header("Access-Control-Allow-Methods: POST, OPTIONS",true);
 header("Content-Type: application/json");                   
 
-
-require_once __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+$dotenv->safeLoad();
 
-$server = $_ENV['DB_HOST'];
-$user = $_ENV['DB_USERNAME'];;
-$password =$_ENV['DB_PASSWORD'];
-$database = $_ENV['DB_NAME'];
-$portno = $_ENV['DB_PORT'];
+function env($key) {
+    return $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key) ?: null;
+}
+
+$server   = env('DB_HOST');
+$user     = env('DB_USERNAME');
+$password = env('DB_PASSWORD');
+$database = env('DB_NAME');
+$portno   = (int) env('DB_PORT');
 
 $connection = mysqli_init();
 
 mysqli_ssl_set($connection, NULL, NULL, NULL, NULL, NULL);
-
-
 mysqli_options($connection, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
 
 $connected = mysqli_real_connect(
@@ -37,7 +38,7 @@ $connected = mysqli_real_connect(
 
 if (!$connected) {
     echo "Something went wrong";
-    
+    error_log("DB connection error: " . mysqli_connect_error());
 } else {
     echo "Successfully connected";
 }
