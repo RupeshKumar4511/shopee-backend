@@ -20,26 +20,11 @@ $password = env('DB_PASSWORD');
 $database = env('DB_NAME');
 $portno   = (int) env('DB_PORT');
 
-$connection = mysqli_init();
+$connection = mysqli_connect($server,$user,$password,$database,$portno);
 
-mysqli_ssl_set($connection, NULL, NULL, NULL, NULL, NULL);
-mysqli_options($connection, MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, false);
-
-$connected = mysqli_real_connect(
-    $connection,
-    $server,
-    $user,
-    $password,
-    $database,
-    $portno,
-    NULL,
-    MYSQLI_CLIENT_SSL
-);
-
-if (!$connected) {
+if(!$connection){
     echo "Something went wrong";
-    error_log("DB connection error: " . mysqli_connect_error());
-} else {
+}else{
     // echo "Successfully connected";
 }
 ?>
